@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    Add Email
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Add name and email</h5>
+                    <form method="post">{% csrf_token %}
+                        <div class="form-group">
+                            <label for="InputName">Name</label>
+                            {{ form.name }}
+                            <small id="NameHelp" class="form-text text-muted">{{ form.name.error_messages }}</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEmail">Email address</label>
+                            {{ form.email }}
+                            <small id="emailHelp" class="form-text text-muted">{{ form.email.error_messages }}</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
